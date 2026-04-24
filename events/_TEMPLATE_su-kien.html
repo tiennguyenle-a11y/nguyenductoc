@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--
+  =====================================================
+  TEMPLATE BÀI VIẾT SỰ KIỆN – TỘC NGUYỄN ĐỨC
+  =====================================================
+  Hướng dẫn sử dụng:
+  1. Copy file này, đặt tên dạng: YYYY-ten-su-kien.html
+     VD: 2026-hop-toc-thuong-nien.html
+  2. Điền thông tin vào các phần có chú thích [ĐIỀN VÀO ĐÂY]
+  3. Thêm entry tương ứng vào events-index.json
+  =====================================================
+-->
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- [ĐIỀN] Tiêu đề bài viết -->
+  <title>Tiêu đề sự kiện – Tộc Nguyễn Đức</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .event-article { max-width: 780px; margin: 0 auto; padding: 0 20px 60px; }
+    .event-article h2 { color: #7B1818; margin: 28px 0 12px; font-size: 1.15em; }
+    .event-article p { color: #3d2b0e; line-height: 1.85; margin-bottom: 16px; }
+    .event-article img { border-radius: 8px; margin: 16px 0; box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+    .event-meta { display: flex; gap: 16px; flex-wrap: wrap; margin: 12px 0 28px; font-size: 0.83em; color: #888; }
+    .event-meta span { display: flex; align-items: center; gap: 4px; }
+  </style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <!-- [ĐIỀN] Tiêu đề và mô tả ngắn -->
+    <h1>📰 Tiêu đề sự kiện</h1>
+    <p>Mô tả ngắn về sự kiện</p>
+    <div class="breadcrumb">
+      <a href="../index.html">Trang chủ</a>
+      <span>›</span>
+      <a href="../tin-tuc.html">Tin tức</a>
+      <span>›</span>
+      <span>Tiêu đề sự kiện</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="event-article">
+
+      <!-- Meta thông tin -->
+      <div class="event-meta">
+        <!-- [ĐIỀN] Ngày sự kiện -->
+        <span>📅 Ngày: DD/MM/YYYY</span>
+        <!-- [ĐIỀN] Loại sự kiện: Kỵ giỗ / Họp tộc / Lễ tiết / Thông báo / Tin vui -->
+        <span>🏷️ Loại: Thông báo</span>
+        <!-- [ĐIỀN] Địa điểm (nếu có) -->
+        <span>📍 Địa điểm: —</span>
+      </div>
+
+      <!-- [ĐIỀN] Ảnh đại diện sự kiện (xóa nếu không có ảnh) -->
+      <!-- <img src="../images/ten-anh.jpg" alt="Mô tả ảnh" style="width:100%"> -->
+
+      <!-- [ĐIỀN] Nội dung bài viết – Thêm bao nhiêu đoạn tùy ý -->
+      <p>
+        Nội dung đoạn đầu tiên...
+      </p>
+
+      <h2>Tiêu đề phần 1 (nếu cần)</h2>
+      <p>
+        Nội dung phần 1...
+      </p>
+
+      <h2>Tiêu đề phần 2 (nếu cần)</h2>
+      <p>
+        Nội dung phần 2...
+      </p>
+
+      <!-- Điều hướng -->
+      <div style="margin-top:40px;padding-top:20px;border-top:1px solid #eee;display:flex;justify-content:space-between;">
+        <a href="../tin-tuc.html" class="btn btn-outline">← Xem tất cả tin tức</a>
+        <a href="../index.html" class="btn btn-primary">Về trang chủ</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="../js/layout.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "_comment": "Mỗi khi thêm sự kiện mới: (1) Tạo file HTML mới trong thư mục events/, (2) Thêm entry vào mảng events bên dưới.",
+  "events": [
+    {
+      "title": "Họp Tộc Thường Niên 2026 – Thông báo và Kế hoạch",
+      "date": "2026-04-01",
+      "type": "hop",
+      "summary": "Ban quản lý tộc tổ chức họp tộc thường niên để thông báo kế hoạch năm 2026, cập nhật gia phả và ra mắt website tộc.",
+      "file": "2026-hop-toc.html"
+    },
+    {
+      "title": "Kỵ Giỗ Ông Nguyễn Đức Toản – 21/4 Âm Lịch",
+      "date": "2026-05-18",
+      "type": "ky",
+      "summary": "Kỵ giỗ hàng năm của Ông Nguyễn Đức Toản (Đời 10), tổ chức tại nhà thờ tộc. Con cháu các nhánh cùng tham dự.",
+      "file": "2026-ky-ong-toan.html"
+    }
+  ]
+}
