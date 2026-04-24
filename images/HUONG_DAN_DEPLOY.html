@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hướng Dẫn Deploy – Website Tộc Nguyễn Đức</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #fdf6e3; color: #2c2c2c; padding: 24px; max-width: 900px; margin: 0 auto; }
+  .header { background: linear-gradient(135deg, #7B1818, #C0392B); color: white; padding: 28px 32px; border-radius: 10px; margin-bottom: 28px; }
+  .header h1 { font-size: 1.5em; margin-bottom: 6px; }
+  .header p { opacity: 0.88; font-size: 0.9em; }
+  h2 { color: #7B1818; border-left: 4px solid #C9A84C; padding-left: 12px; margin: 28px 0 14px; font-size: 1.1em; }
+  h3 { color: #444; margin: 18px 0 8px; font-size: 0.95em; }
+  .card { background: white; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+  .step { display: flex; gap: 16px; margin-bottom: 20px; align-items: flex-start; }
+  .step-num { background: #7B1818; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9em; flex-shrink: 0; margin-top: 2px; }
+  .step-body h4 { font-size: 0.95em; margin-bottom: 6px; color: #1a1a1a; }
+  .step-body p, .step-body li { font-size: 0.85em; color: #555; line-height: 1.7; }
+  .step-body ul { padding-left: 16px; margin-top: 4px; }
+  code { background: #1e1e1e; color: #ce9178; padding: 2px 7px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.82em; }
+  .code-block { background: #1e1e1e; color: #d4d4d4; padding: 14px 16px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 0.82em; line-height: 1.8; margin: 10px 0; overflow-x: auto; }
+  .code-block .cmd { color: #4ec9b0; }
+  .code-block .cmt { color: #6a9955; }
+  .note { background: #fff3cd; border: 1px solid #f0a500; border-radius: 6px; padding: 10px 14px; font-size: 0.83em; margin: 10px 0; }
+  .success { background: #d4edda; border: 1px solid #27ae60; border-radius: 6px; padding: 10px 14px; font-size: 0.83em; margin: 10px 0; }
+  .option-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .option-card { border: 2px solid #ddd; border-radius: 8px; padding: 16px; }
+  .option-card.recommended { border-color: #27ae60; background: #f0fff4; }
+  .option-card h4 { font-size: 0.95em; margin-bottom: 6px; }
+  .badge { display: inline-block; font-size: 0.7em; padding: 2px 8px; border-radius: 10px; background: #27ae60; color: white; margin-left: 6px; }
+  .img-step { border: 1px solid #eee; border-radius: 6px; padding: 12px; margin: 8px 0; background: #fafafa; font-size: 0.83em; color: #555; }
+  .img-step strong { color: #333; display: block; margin-bottom: 3px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85em; margin: 12px 0; }
+  th { background: #f5f5f5; padding: 8px 12px; text-align: left; border: 1px solid #ddd; }
+  td { padding: 8px 12px; border: 1px solid #ddd; }
+  .footer { text-align: center; color: #aaa; font-size: 0.78em; margin-top: 36px; padding-top: 16px; border-top: 1px solid #eee; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🚀 Hướng Dẫn Deploy Website Tộc Nguyễn Đức</h1>
+  <p>Đưa website lên Internet miễn phí bằng GitHub Pages – không cần thuê server</p>
+</div>
+
+<!-- TỔNG QUAN -->
+<div class="card">
+  <h3>📋 Tổng quan</h3>
+  <table>
+    <tr><th>Hạng mục</th><th>Chi tiết</th></tr>
+    <tr><td>Hosting</td><td>GitHub Pages – <strong>Miễn phí hoàn toàn</strong></td></tr>
+    <tr><td>Địa chỉ website</td><td><code>https://[tên-tài-khoản].github.io/nguyen-duc-toc/</code></td></tr>
+    <tr><td>Thời gian setup</td><td>~15–20 phút (lần đầu)</td></tr>
+    <tr><td>Cập nhật sau này</td><td>Upload file mới là xong – tự động live sau vài giây</td></tr>
+    <tr><td>Cần cài gì không</td><td>Chỉ cần trình duyệt web – không cần cài phần mềm</td></tr>
+  </table>
+</div>
+
+<!-- PHẦN 1: TẠO TÀI KHOẢN GITHUB -->
+<h2>Phần 1 – Tạo tài khoản GitHub (nếu chưa có)</h2>
+<div class="card">
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h4>Truy cập <a href="https://github.com" target="_blank">github.com</a> → Sign up</h4>
+      <p>Điền email, mật khẩu và tên người dùng. Nên chọn tên ngắn gọn, ví dụ: <code>tocnguyenduc</code> hoặc <code>nguyenduc-danang</code></p>
+      <div class="note">💡 Tên tài khoản sẽ xuất hiện trong địa chỉ website: <code>https://<strong>tên-tài-khoản</strong>.github.io/...</code></div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h4>Xác nhận email và đăng nhập</h4>
+      <p>GitHub sẽ gửi email xác nhận. Bấm link trong email rồi đăng nhập lại.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PHẦN 2: TẠO REPOSITORY -->
+<h2>Phần 2 – Tạo kho lưu trữ (Repository)</h2>
+<div class="card">
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h4>Bấm nút <code>+</code> (góc trên phải) → <code>New repository</code></h4>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h4>Điền thông tin repository</h4>
+      <ul>
+        <li><strong>Repository name:</strong> <code>nguyen-duc-toc</code></li>
+        <li><strong>Description:</strong> Website gia phả Tộc Nguyễn Đức, Phường Hòa Cường, TP. Đà Nẵng</li>
+        <li><strong>Visibility:</strong> ✅ <code>Public</code> (bắt buộc để dùng GitHub Pages miễn phí)</li>
+        <li><strong>Initialize with README:</strong> ☑️ Tick vào</li>
+      </ul>
+      <p style="margin-top:8px">→ Bấm <strong>Create repository</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- PHẦN 3: UPLOAD FILES -->
+<h2>Phần 3 – Upload toàn bộ file website</h2>
+<div class="card">
+  <div class="note" style="margin-bottom:16px">
+    📁 Toàn bộ file website nằm trong thư mục: <code>output/website/</code> trên máy tính của bạn
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h4>Trong trang repository vừa tạo, bấm <code>Add file</code> → <code>Upload files</code></h4>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h4>Kéo thả toàn bộ nội dung thư mục <code>output/website/</code> vào ô upload</h4>
+      <p>Cần upload <strong>tất cả</strong> các file và thư mục con:</p>
+      <ul>
+        <li><code>index.html</code>, <code>gia-pha.html</code>, <code>lich-su.html</code>, <code>tong-do.html</code>, <code>tin-tuc.html</code>, <code>lien-he.html</code></li>
+        <li>Thư mục <code>css/</code>, <code>js/</code>, <code>data/</code>, <code>images/</code>, <code>events/</code></li>
+      </ul>
+      <div class="note">⚠️ Kéo thả <strong>nội dung bên trong</strong> thư mục <code>website/</code>, không kéo cả thư mục <code>website</code></div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <h4>Bấm <code>Commit changes</code> ở phía dưới trang</h4>
+      <p>Để nguyên commit message mặc định hoặc gõ: <em>"Upload website Tộc Nguyễn Đức"</em></p>
+    </div>
+  </div>
+</div>
+
+<!-- PHẦN 4: BẬT GITHUB PAGES -->
+<h2>Phần 4 – Bật GitHub Pages</h2>
+<div class="card">
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h4>Vào tab <code>Settings</code> (thanh menu trong repository)</h4>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h4>Thanh bên trái → mục <code>Pages</code></h4>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <h4>Cấu hình Source</h4>
+      <ul>
+        <li><strong>Source:</strong> chọn <code>Deploy from a branch</code></li>
+        <li><strong>Branch:</strong> chọn <code>main</code> · <code>/ (root)</code></li>
+        <li>Bấm <strong>Save</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <h4>Chờ ~1–2 phút rồi F5 lại trang Settings → Pages</h4>
+      <div class="success">
+        ✅ Khi thấy dòng xanh: <em>"Your site is live at https://[tên-tài-khoản].github.io/nguyen-duc-toc/"</em> là xong!
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PHẦN 5: CẬP NHẬT SAU NÀY -->
+<h2>Phần 5 – Cập nhật website sau này</h2>
+<div class="card">
+  <h3>🗞️ Thêm tin tức/sự kiện mới</h3>
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h4>Copy file <code>events/_TEMPLATE_su-kien.html</code>, đặt tên mới, điền nội dung</h4>
+      <p>Ví dụ: <code>2026-ky-bac-toc.html</code></p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h4>Mở <code>events/events-index.json</code>, thêm entry mới lên đầu mảng <code>events</code></h4>
+      <div class="code-block"><span class="cmt">// Thêm vào đầu mảng "events": [</span>
+{
+  "title": "Tên sự kiện",
+  "date": "2026-05-20",
+  "type": "ky",  <span class="cmt">// ky | hop | le | thong | vui</span>
+  "summary": "Mô tả ngắn sự kiện",
+  "file": "2026-ky-bac-toc.html"
+},</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <h4>Upload 2 file mới lên GitHub → website tự cập nhật</h4>
+      <p>Vào repository trên GitHub → <code>Add file</code> → <code>Upload files</code> → kéo 2 file vào → <code>Commit</code></p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:20px">📋 Cập nhật thành viên mới trong gia phả</h3>
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h4>Mở file <code>gen_genealogy.py</code>, thêm thành viên mới</h4>
+      <p>Gửi file cho mình (AI), mình sẽ thêm thành viên và tái tạo <code>genealogy.json</code></p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h4>Upload <code>data/genealogy.json</code> mới lên GitHub</h4>
+      <p>Website gia phả sẽ tự cập nhật ngay sau khi commit.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TÙY CHỌN: TÊN MIỀN -->
+<h2>Phần 6 – (Tùy chọn) Mua tên miền riêng</h2>
+<div class="card">
+  <div class="option-grid">
+    <div class="option-card recommended">
+      <h4>GitHub Pages (Miễn phí) <span class="badge">Khuyến nghị</span></h4>
+      <p style="font-size:0.85em;color:#555;margin-top:6px">
+        Địa chỉ: <code style="font-size:0.78em">https://tocnguyenduc.github.io/nguyen-duc-toc/</code><br>
+        Chi phí: <strong>0 đồng/năm</strong><br>
+        Ổn định, không quảng cáo, không giới hạn lưu lượng
+      </p>
+    </div>
+    <div class="option-card">
+      <h4>Tên miền riêng (Trả phí)</h4>
+      <p style="font-size:0.85em;color:#555;margin-top:6px">
+        Địa chỉ: <code style="font-size:0.78em">https://tocnguyenduc.vn</code><br>
+        Chi phí: ~250.000–350.000 đ/năm<br>
+        Hosting vẫn dùng GitHub Pages (miễn phí)<br>
+        <a href="https://www.tenten.vn" target="_blank" style="font-size:0.9em">Mua tại: tenten.vn</a> hoặc <a href="https://www.inet.vn" target="_blank">inet.vn</a>
+      </p>
+    </div>
+  </div>
+  <div class="note" style="margin-top:12px">
+    💡 Nếu mua tên miền riêng: vào <code>Settings → Pages → Custom domain</code>, điền tên miền vào và làm theo hướng dẫn của GitHub.
+  </div>
+</div>
+
+<!-- LIÊN HỆ HỖ TRỢ -->
+<div class="card" style="background:#fdf0f0;border-color:#e0b0b0;">
+  <h3 style="color:#7B1818">🙋 Cần hỗ trợ thêm?</h3>
+  <p style="font-size:0.85em;color:#555;line-height:1.7;margin-top:8px">
+    Nếu gặp khó khăn trong quá trình deploy, chụp màn hình lỗi và gửi cho mình (AI) để được hỗ trợ.
+    Mình cũng có thể hỗ trợ thêm sự kiện mới, cập nhật thành viên, hoặc chỉnh sửa giao diện bất cứ lúc nào.
+  </p>
+</div>
+
+<div class="footer">
+  Hướng dẫn deploy – Website Tộc Nguyễn Đức · Tháng 4/2026
+</div>
+
+</body>
+</html>
