@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tộc Nguyễn Đức – Phường Hòa Cường, TP. Đà Nẵng</title>
+  <meta name="description" content="Website gia phả Tộc Nguyễn Đức, Phường Hòa Cường Bắc, Quận Hải Châu, Thành phố Đà Nẵng. 15 đời, 278 thành viên được ghi nhận.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Header được inject bởi layout.js -->
+<div id="site-header"></div>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content container">
+    <div class="hero-ornament">✦ ✦ ✦</div>
+    <h1>Tộc Nguyễn Đức</h1>
+    <p class="hero-sub">Phường Hòa Cường Bắc · Quận Hải Châu · Thành phố Đà Nẵng</p>
+    <p class="hero-sub" style="font-size:0.85em;opacity:0.75">Gia phả biên soạn năm 1995, cập nhật năm 2026</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="num">15</span>
+        <span class="lbl">Thế hệ</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num">278</span>
+        <span class="lbl">Thành viên</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num">6</span>
+        <span class="lbl">Phái</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num">2026</span>
+        <span class="lbl">Cập nhật</span>
+      </div>
+    </div>
+    <div style="margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="gia-pha.html" class="btn btn-gold">🌳 Xem Gia Phả</a>
+      <a href="tong-do.html" class="btn btn-outline" style="color:white;border-color:rgba(255,255,255,0.6)">🗺️ Xem Tông Đồ</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== GIỚI THIỆU ========== -->
+<section class="section">
+  <div class="container">
+    <div class="intro-grid">
+      <div class="intro-text">
+        <div class="section-title" style="text-align:left;margin-bottom:20px;">
+          <h2>Về Tộc Nguyễn Đức</h2>
+        </div>
+        <p>
+          Tộc Nguyễn Đức định cư tại Phường Hòa Cường Bắc, Quận Hải Châu, Thành phố Đà Nẵng.
+          Từ vị Thủy tổ <strong>Ông Nguyễn Đức Đốm</strong> (Đời 1), tộc đã phát triển qua
+          <strong>15 thế hệ</strong> với hơn 278 thành viên được ghi nhận.
+        </p>
+        <p>
+          Đến Đời thứ 6, Ông <strong>Nguyễn Đức Thảo</strong> (tự Lượng) sinh hạ 18 người con
+          – trong đó 6 trai hữu tự, tạo thành <strong>6 Phái</strong> của tộc, mỗi Phái có
+          phổ hệ riêng. Hiện gia phả này ghi nhận đầy đủ <strong>Phái I (Nhứt Phái)</strong>.
+        </p>
+        <p>
+          Gia phả được biên soạn lần đầu năm <strong>1995</strong>, ghi lại từ Đời 1 đến Đời 11.
+          Năm <strong>2026</strong>, tộc tiếp tục bổ sung, cập nhật đến Đời 15.
+        </p>
+        <a href="lich-su.html" class="btn btn-primary" style="margin-top:8px">Xem lịch sử tộc đầy đủ →</a>
+      </div>
+      <div class="intro-img">
+        <img src="images/tong-do-full.jpg" alt="Tông Đồ Tộc Nguyễn Đức"
+             style="border-radius:8px;border:4px solid #C9A84C;box-shadow:0 4px 18px rgba(0,0,0,0.13)">
+        <p style="text-align:center;font-size:0.78em;color:#888;margin-top:8px">
+          Tông Đồ Tộc Nguyễn Đức – Đời 1 đến Đời 11
+          <a href="tong-do.html" style="margin-left:6px">Xem chi tiết →</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TIN TỨC + KỲ GIỖ ========== -->
+<section class="section section-alt">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:40px;" class="news-layout">
+
+      <!-- Tin tức -->
+      <div>
+        <div class="section-title" style="text-align:left;margin-bottom:20px;">
+          <h2>Tin tức & Sự kiện</h2>
+        </div>
+        <div id="events-container" class="news-list">
+          <div class="loading"></div>
+        </div>
+        <div style="text-align:center;margin-top:20px;">
+          <a href="tin-tuc.html" class="btn btn-outline">Xem tất cả tin tức →</a>
+        </div>
+      </div>
+
+      <!-- Kỳ giỗ -->
+      <div>
+        <div class="section-title" style="text-align:left;margin-bottom:20px;">
+          <h2>Kỵ giỗ</h2>
+        </div>
+        <div style="background:white;border-radius:8px;padding:16px 20px;border:1px solid #eee;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+          <ul class="ky-gio-list" id="ky-gio-list">
+            <li style="color:#888;font-size:0.85em;padding:8px 0">Đang tải...</li>
+          </ul>
+          <a href="gia-pha.html" style="font-size:0.82em;color:#8B1A1A;display:block;text-align:right;margin-top:10px">
+            Xem gia phả đầy đủ →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== TRUY CẬP NHANH ========== -->
+<section class="section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Tra cứu thành viên</h2>
+      <p>Tìm kiếm nhanh theo tên thành viên trong gia phả</p>
+    </div>
+    <div style="max-width:520px;margin:0 auto;">
+      <div class="search-box">
+        <input type="text" id="quick-search" placeholder="Nhập tên thành viên... (VD: Nguyễn Đức Hưng)">
+        <button onclick="doQuickSearch()">🔍 Tìm</button>
+      </div>
+      <div id="quick-results" style="margin-top:12px;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== NAVIGATE SECTIONS ========== -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-title">
+      <h2>Khám phá gia tộc</h2>
+    </div>
+    <div class="card-grid">
+      <a href="gia-pha.html" style="text-decoration:none">
+        <div class="card" style="text-align:center;padding:28px 20px;">
+          <div style="font-size:3em;margin-bottom:14px">🌳</div>
+          <h3 style="color:#7B1818;margin-bottom:8px">Cây Gia Phả</h3>
+          <p>Xem toàn bộ 278 thành viên theo từng đời, tìm kiếm và xem chi tiết từng người.</p>
+        </div>
+      </a>
+      <a href="tong-do.html" style="text-decoration:none">
+        <div class="card" style="text-align:center;padding:28px 20px;">
+          <div style="font-size:3em;margin-bottom:14px">🗺️</div>
+          <h3 style="color:#7B1818;margin-bottom:8px">Tông Đồ</h3>
+          <p>Xem ảnh tông đồ gốc – sơ đồ quan hệ gia tộc từ Đời 1 đến Đời 15.</p>
+        </div>
+      </a>
+      <a href="lich-su.html" style="text-decoration:none">
+        <div class="card" style="text-align:center;padding:28px 20px;">
+          <div style="font-size:3em;margin-bottom:14px">📜</div>
+          <h3 style="color:#7B1818;margin-bottom:8px">Lịch Sử Tộc</h3>
+          <p>Tìm hiểu nguồn gốc, quá trình phát triển và truyền thống của tộc Nguyễn Đức.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer được inject bởi layout.js -->
+<div id="site-footer"></div>
+
+<!-- Modal chi tiết (dùng chung) -->
+<div class="modal-overlay" id="person-modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-gender-icon" id="modal-gender-icon">👤</span>
+      <h3 id="modal-name">–</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script src="js/layout.js"></script>
+<script src="js/main.js"></script>
+<script src="js/family-tree.js"></script>
+<script>
+  // Load kỳ giỗ và sự kiện khi trang sẵn sàng
+  document.addEventListener('DOMContentLoaded', () => {
+    loadKyGio('ky-gio-list', 8);
+    loadEvents('events-container', 3);
+  });
+
+  // Tìm kiếm nhanh trang chủ
+  async function doQuickSearch() {
+    const q = document.getElementById('quick-search').value;
+    const el = document.getElementById('quick-results');
+    if (!q || q.trim().length < 2) {
+      el.innerHTML = '<p style="color:#888;font-size:0.85em">Vui lòng nhập ít nhất 2 ký tự.</p>';
+      return;
+    }
+
+    el.innerHTML = '<p style="color:#888;font-size:0.85em">Đang tìm...</p>';
+    const results = await quickSearch(q);
+
+    if (results.length === 0) {
+      el.innerHTML = '<p style="color:#888;font-size:0.85em">Không tìm thấy thành viên nào.</p>';
+      return;
+    }
+
+    el.innerHTML = `
+      <p style="font-size:0.82em;color:#555;margin-bottom:10px">Tìm thấy ${results.length} kết quả:</p>
+      ${results.map(m => `
+        <div style="background:white;border:1px solid #eee;border-radius:6px;padding:10px 14px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 1px 4px rgba(0,0,0,0.06)">
+          <div>
+            <strong style="font-size:0.9em">${m.name}</strong>
+            <span style="font-size:0.78em;color:#888;margin-left:8px">Đời ${m.doi} · ${m.gender === 'F' ? '♀' : '♂'}</span>
+            ${m.birth ? `<span style="font-size:0.78em;color:#888;margin-left:8px">Sinh ${m.birth}</span>` : ''}
+          </div>
+          <a href="gia-pha.html#${m.id}" style="font-size:0.8em;color:#8B1A1A;font-weight:bold">Xem →</a>
+        </div>`).join('')}
+      <p style="text-align:right;margin-top:6px">
+        <a href="gia-pha.html" style="font-size:0.82em;color:#8B1A1A">Tra cứu gia phả đầy đủ →</a>
+      </p>`;
+  }
+
+  // Enter key để tìm kiếm
+  document.addEventListener('DOMContentLoaded', () => {
+    const inp = document.getElementById('quick-search');
+    if (inp) inp.addEventListener('keydown', e => { if (e.key === 'Enter') doQuickSearch(); });
+  });
+</script>
+</body>
+</html>
