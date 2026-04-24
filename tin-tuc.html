@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tin Tức & Sự Kiện – Tộc Nguyễn Đức</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>📰 Tin Tức & Sự Kiện</h1>
+    <p>Kỵ giỗ · Họp tộc · Lễ tiết · Thông báo của tộc Nguyễn Đức</p>
+    <div class="breadcrumb">
+      <a href="index.html">Trang chủ</a>
+      <span>›</span>
+      <span>Tin tức & Sự kiện</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Bộ lọc loại sự kiện -->
+    <div style="display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap;">
+      <button class="btn btn-primary filter-btn active" onclick="filterType('all',this)">Tất cả</button>
+      <button class="btn btn-outline filter-btn" onclick="filterType('ky',this)">🕯️ Kỵ giỗ</button>
+      <button class="btn btn-outline filter-btn" onclick="filterType('hop',this)">🏛️ Họp tộc</button>
+      <button class="btn btn-outline filter-btn" onclick="filterType('le',this)">🎋 Lễ tiết</button>
+      <button class="btn btn-outline filter-btn" onclick="filterType('thong',this)">📢 Thông báo</button>
+      <button class="btn btn-outline filter-btn" onclick="filterType('vui',this)">🎉 Tin vui</button>
+    </div>
+
+    <!-- Danh sách sự kiện -->
+    <div id="all-events" class="news-list">
+      <div class="loading"></div>
+    </div>
+
+    <!-- Hướng dẫn thêm sự kiện -->
+    <div style="margin-top:40px;background:#fdf0f0;border:1px solid #e0b0b0;border-radius:8px;padding:20px 24px;">
+      <h3 style="color:#7B1818;font-size:1em;margin-bottom:10px">📌 Hướng dẫn: Thêm sự kiện mới</h3>
+      <p style="font-size:0.85em;color:#555;line-height:1.7;margin-bottom:10px">
+        Để thêm bài viết sự kiện mới, làm theo 2 bước đơn giản:
+      </p>
+      <ol style="font-size:0.85em;color:#555;padding-left:20px;line-height:2;">
+        <li>Copy file <code style="background:#eee;padding:1px 5px;border-radius:3px">events/_TEMPLATE_su-kien.html</code>, đặt tên mới dạng <code>YYYY-ten-su-kien.html</code>, điền nội dung vào.</li>
+        <li>Mở file <code style="background:#eee;padding:1px 5px;border-radius:3px">events/events-index.json</code>, thêm entry mới với tiêu đề, ngày, loại và tên file vừa tạo.</li>
+      </ol>
+      <p style="font-size:0.83em;color:#888;margin-top:8px">
+        Không cần biết lập trình. Trang tin tức sẽ tự động hiển thị sự kiện mới nhất lên đầu.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/layout.js"></script>
+<script src="js/main.js"></script>
+<script>
+  let allEvents = [];
+
+  document.addEventListener('DOMContentLoaded', async () => {
+    const container = document.getElementById('all-events');
+    try {
+      const data = await Utils.fetchJSON('events/events-index.json');
+      allEvents = data.events || [];
+      renderEvents(allEvents);
+    } catch (e) {
+      container.innerHTML = `<div class="empty-state">
+        <div class="icon">📰</div>
+        <p>Chưa có tin tức/sự kiện nào. Ban quản lý tộc sẽ cập nhật sớm.</p>
+      </div>`;
+    }
+  });
+
+  function renderEvents(events) {
+    const container = document.getElementById('all-events');
+    if (events.length === 0) {
+      container.innerHTML = `<div class="empty-state"><div class="icon">🔍</div><p>Không có sự kiện nào phù hợp.</p></div>`;
+      return;
+    }
+
+    const typeLabel = { ky:'Kỵ giỗ', hop:'Họp tộc', le:'Lễ tiết', thong:'Thông báo', vui:'Tin vui' };
+
+    container.innerHTML = events.map(ev => {
+      const d = new Date(ev.date);
+      const day   = d.getDate();
+      const month = d.toLocaleString('vi-VN', { month: 'short' });
+      const year  = d.getFullYear();
+      const typeClass = `type-${ev.type || 'thong'}`;
+      const label = typeLabel[ev.type] || 'Tin tức';
+
+      return `
+        <div class="news-item" data-type="${ev.type || 'thong'}">
+          <div class="news-date-box">
+            <div class="nd-day">${day}</div>
+            <div class="nd-month">${month}</div>
+            <div class="nd-year">${year}</div>
+          </div>
+          <div class="news-content">
+            <span class="news-type ${typeClass}">${label}</span>
+            <h3><a href="events/${ev.file}">${ev.title}</a></h3>
+            <p>${ev.summary || ''}</p>
+            ${ev.file ? `<a class="read-more" href="events/${ev.file}">Đọc tiếp →</a>` : ''}
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  function filterType(type, btn) {
+    // Cập nhật button active
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.remove('btn-primary', 'active');
+      b.classList.add('btn-outline');
+    });
+    btn.classList.add('btn-primary', 'active');
+    btn.classList.remove('btn-outline');
+
+    // Lọc
+    if (type === 'all') {
+      renderEvents(allEvents);
+    } else {
+      renderEvents(allEvents.filter(e => e.type === type));
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gia Phả – Tộc Nguyễn Đức</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Override: bỏ padding section cho trang gia phả để cây chiếm toàn bộ chiều cao */
+    .gia-pha-section { padding: 32px 0 48px; }
+
+    /* Stats bar */
+    .stats-bar {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 16px;
+      font-size: 0.83em;
+      color: #666;
+    }
+
+    .stats-bar .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend {
+      display: flex;
+      gap: 16px;
+      font-size: 0.78em;
+      flex-wrap: wrap;
+    }
+
+    .legend-item { display: flex; align-items: center; gap: 5px; }
+
+    .legend-box {
+      width: 14px; height: 14px;
+      border-radius: 3px;
+      border: 2px solid transparent;
+    }
+
+    .leg-male    { background:#e8f0fe; border-color:#4a7fcc; }
+    .leg-female  { background:#fde8ef; border-color:#c0487a; }
+    .leg-dead    { background:#e8f0fe; border-color:#4a7fcc; opacity:0.55; }
+    .leg-taovong { background:#e8e8e8; border-color:#aaa; opacity:0.45; }
+  </style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>🌳 Gia Phả Tộc Nguyễn Đức</h1>
+    <p>278 thành viên · Đời 1 đến Đời 15 · Phái I (Nhứt Phái)</p>
+    <div class="breadcrumb">
+      <a href="index.html">Trang chủ</a>
+      <span>›</span>
+      <span>Gia Phả</span>
+    </div>
+  </div>
+</section>
+
+<section class="gia-pha-section">
+  <div class="container">
+
+    <!-- Toolbar lọc & tìm kiếm -->
+    <div id="tree-toolbar">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <label for="filter-doi">Đời:</label>
+        <select id="filter-doi"><option value="">Tất cả đời</option></select>
+      </div>
+      <div class="search-box" style="max-width:320px;">
+        <input type="text" id="search-input" placeholder="Tìm tên thành viên...">
+        <button onclick="handleSearch()">🔍</button>
+      </div>
+      <button id="btn-reset" title="Xem tất cả">↺ Reset</button>
+      <span id="tree-count" style="margin-left:auto;font-size:0.8em;color:#888;"></span>
+    </div>
+
+    <!-- Chú giải -->
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:14px;">
+      <div class="legend">
+        <div class="legend-item"><div class="legend-box leg-male"></div> Nam</div>
+        <div class="legend-item"><div class="legend-box leg-female"></div> Nữ</div>
+        <div class="legend-item"><div class="legend-box leg-dead"></div> Đã mất</div>
+        <div class="legend-item"><div class="legend-box leg-taovong"></div> Tảo vong</div>
+      </div>
+      <div style="font-size:0.78em;color:#888">
+        💡 Nhấn vào thẻ tên để xem chi tiết thành viên
+      </div>
+    </div>
+
+    <!-- Cây gia phả -->
+    <div id="tree-container">
+      <div class="loading"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Modal chi tiết thành viên -->
+<div class="modal-overlay" id="person-modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-gender-icon" id="modal-gender-icon">👤</span>
+      <h3 id="modal-name">–</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<div id="site-footer"></div>
+
+<script src="js/layout.js"></script>
+<script src="js/main.js"></script>
+<script src="js/family-tree.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', initFamilyTree);
+
+  // Nếu URL có hash (#id), auto-highlight thành viên đó sau khi cây load
+  window.addEventListener('load', () => {
+    const hash = location.hash.replace('#', '');
+    if (hash) {
+      setTimeout(() => {
+        showPersonDetail(hash);
+      }, 800);
+    }
+  });
+</script>
+</body>
+</html>

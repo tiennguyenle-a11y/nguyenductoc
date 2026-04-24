@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tông Đồ – Tộc Nguyễn Đức</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>🗺️ Tông Đồ Tộc Nguyễn Đức</h1>
+    <p>Sơ đồ phả hệ gốc – Phường Hòa Cường Bắc, TP. Đà Nẵng</p>
+    <div class="breadcrumb">
+      <a href="index.html">Trang chủ</a>
+      <span>›</span>
+      <span>Tông Đồ</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="tong-do-viewer">
+      <!-- Tabs chọn ảnh -->
+      <div class="tong-do-tabs">
+        <button class="tong-do-tab active" onclick="switchTab('full', this)">
+          📋 Tông Đồ Tổng Thể (Đời 1–11)
+        </button>
+        <button class="tong-do-tab" onclick="switchTab('phai1', this)">
+          🌿 Phái Nhất – Chi Nhất – Nhánh Nhất (Đời 10–15)
+        </button>
+      </div>
+
+      <!-- Thông tin ảnh -->
+      <div id="img-info" style="font-size:0.82em;color:#888;margin-bottom:12px;padding:8px 12px;background:#fdf6e3;border-radius:6px;border:1px solid #eee;">
+        <strong>Tông Đồ Tổng Thể:</strong> Hiển thị toàn bộ 6 Phái từ Đời 1 đến Đời 11.
+        Nhấn vào ảnh để phóng to / thu nhỏ. Cuộn để xem toàn bộ.
+      </div>
+
+      <!-- Ảnh tông đồ -->
+      <div class="tong-do-img-wrap" id="img-wrap" onclick="toggleZoom(this)">
+        <img id="tong-do-img" src="images/tong-do-full.jpg" alt="Tông Đồ Tộc Nguyễn Đức">
+      </div>
+
+      <!-- Ghi chú -->
+      <div style="margin-top:14px;font-size:0.8em;color:#888;text-align:center">
+        💡 Nhấn vào ảnh để phóng to · Cuộn chuột để xem các phần khác nhau
+      </div>
+    </div>
+
+    <!-- Chú giải -->
+    <div style="margin-top:32px;background:white;border-radius:8px;padding:20px 24px;border:1px solid #eee;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+      <h2 style="font-size:1.1em;color:#7B1818;margin-bottom:14px">Chú giải tông đồ</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;font-size:0.85em;">
+        <div><strong style="color:#7B1818">Hàng ngang:</strong> Mỗi hàng tương ứng 1 thế hệ (Đời)</div>
+        <div><strong style="color:#7B1818">Đường thẳng dọc:</strong> Quan hệ cha – con</div>
+        <div><strong style="color:#7B1818">Đường ngang:</strong> Anh em cùng cha</div>
+        <div><strong style="color:#7B1818">Tông đồ 1:</strong> Toàn bộ 6 Phái, Đời 1–11</div>
+        <div><strong style="color:#7B1818">Tông đồ 2:</strong> Phái I, Chi I, Nhánh I chi tiết</div>
+      </div>
+    </div>
+
+    <!-- Link đến gia phả tương tác -->
+    <div style="text-align:center;margin-top:28px;">
+      <p style="color:#666;margin-bottom:12px;font-size:0.9em">
+        Muốn tra cứu từng thành viên và xem thông tin chi tiết?
+      </p>
+      <a href="gia-pha.html" class="btn btn-primary">🌳 Mở Gia Phả Tương Tác →</a>
+    </div>
+
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/layout.js"></script>
+<script src="js/main.js"></script>
+<script>
+function switchTab(type, btn) {
+  // Cập nhật tab active
+  document.querySelectorAll('.tong-do-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+
+  // Đổi ảnh
+  const img = document.getElementById('tong-do-img');
+  const info = document.getElementById('img-info');
+  const wrap = document.getElementById('img-wrap');
+  wrap.classList.remove('zoomed');
+
+  if (type === 'full') {
+    img.src = 'images/tong-do-full.jpg';
+    img.alt = 'Tông Đồ Tộc Nguyễn Đức – Toàn bộ';
+    info.innerHTML = '<strong>Tông Đồ Tổng Thể:</strong> Hiển thị toàn bộ 6 Phái từ Đời 1 đến Đời 11. Nhấn vào ảnh để phóng to / thu nhỏ.';
+  } else {
+    img.src = 'images/tong-do-phai1.jpg';
+    img.alt = 'Tông Đồ Phái I Chi I Nhánh I';
+    info.innerHTML = '<strong>Phái Nhất – Chi Nhất – Nhánh Nhất:</strong> Chi tiết từ Đời 10 đến Đời 15. Nhấn vào ảnh để phóng to / thu nhỏ.';
+  }
+}
+
+function toggleZoom(el) {
+  el.classList.toggle('zoomed');
+}
+</script>
+</body>
+</html>
